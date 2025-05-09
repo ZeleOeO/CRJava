@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Random;
 import java.util.Set;
 
 public class Course {
@@ -13,7 +14,8 @@ public class Course {
     public Course() {}
 
     public Course(String name, int capacity, Teacher teacher, int level, Set<String> studentsThatShouldBeInCourse) {
-//        this.id =
+        Random rand = new Random();
+        this.id = rand.nextInt();
         this.name = name;
         this.capacity = capacity;
         this.teacher = teacher;
@@ -61,11 +63,11 @@ public class Course {
         this.level = level;
     }
 
-    public Set<Student> getStudentsThatShouldBeInCourse() {
+    public Set<String> getStudentsThatShouldBeInCourse() {
         return studentsThatShouldBeInCourse;
     }
 
-    public void setStudentsThatShouldBeInCourse(Set<Student> studentsThatShouldBeInCourse) {
+    public void setStudentsThatShouldBeInCourse(Set<String> studentsThatShouldBeInCourse) {
         this.studentsThatShouldBeInCourse = studentsThatShouldBeInCourse;
     }
 }

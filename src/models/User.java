@@ -1,12 +1,15 @@
 package models;
 
 import javax.swing.*;
+import java.util.Random;
 
 public class User {
     private int id;
     private String name;
 
-    public User(int id, String name) {this.id=id;this.name=name;}
+    public User(String name) {
+        Random rand = new Random();
+        this.id= rand.nextInt();this.name=name;}
 
     public int getId() {
         return id;
