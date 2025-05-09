@@ -13,10 +13,10 @@ public class Course {
 
     public Course() {}
 
-    public Course(String name, int capacity, Teacher teacher, int level, Set<String> studentsThatShouldBeInCourse) {
+    protected Course(String name, int capacity, Teacher teacher, int level, Set<String> studentsThatShouldBeInCourse) {
         Random rand = new Random();
         this.id = rand.nextInt(10);
-        this.name = name+ (String.valueOf(level).charAt(toString().length()-1) + String.valueOf(id));
+        this.name = name + String.valueOf(level).charAt(0) + "0" + String.valueOf(this.id);
         this.capacity = capacity;
         this.teacher = teacher;
         this.level = level;
@@ -25,10 +25,6 @@ public class Course {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
