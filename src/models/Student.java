@@ -7,7 +7,7 @@ import java.util.Set;
 public class Student  extends User{
     private Set<Course> courses;
 
-    public Student(int id, String name) {super(name); Admin.allStudents.add(name);}
+    public Student(String name) {super(name); Admin.allStudents.add(name);}
 
     public Map<String, String> getCoursesRegistered() {
         Map<String, String> coursesRegisteredWithTeacher = new HashMap<>();
