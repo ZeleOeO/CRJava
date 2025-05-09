@@ -43,7 +43,7 @@ public class Teacher extends User {
         Course course = new Course(courseName, capacity,this, level, this.getStudentsFromFile());
         coursesTeaching.add(course);
         Admin.allCourses.add(course.getName());
-        Admin.allTeachers.add(course.getName());
+        Admin.allTeachers.add(course.getTeacher().getName());
     }
 
     public void deleteCourse(String courseName) {
