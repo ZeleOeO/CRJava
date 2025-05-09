@@ -1,5 +1,6 @@
 package models;
 
+import exceptions.CourseAlreadyCreatedException;
 import exceptions.FileNotFound;
 
 import java.io.BufferedReader;
@@ -12,8 +13,11 @@ import java.util.Set;
 public class Teacher extends User {
     private Set<Course> coursesTeaching = new HashSet<>();
 
-    public Teacher(int id, String name) {super(name);}
+    public Teacher(String name) {super(name);}
 
+    public Set<Course> getAllCourseTeaching() {
+        return coursesTeaching;
+    }
 
     private Set<String> getStudentsFromFile() {
         Set<String> students = new HashSet<>();
@@ -25,12 +29,17 @@ public class Teacher extends User {
             }
         }
         catch (FileNotFound | IOException e) {
-            e.printStackTrace();
+            throw new FileNotFound(e.getMessage());
         }
         return students;
     }
 
     public void createCourse(String courseName, int capacity, int level) {
+        for (String course : Admin.allCourses) {
+            if (courseName.equals(course)) {
+                throw new CourseAlreadyCreatedException(courseName);
+            }
+        }
         Course course = new Course(courseName, capacity,this, level, this.getStudentsFromFile());
         coursesTeaching.add(course);
         Admin.allCourses.add(course.getName());

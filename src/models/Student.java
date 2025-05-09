@@ -17,11 +17,11 @@ public class Student  extends User{
         return coursesRegisteredWithTeacher;
     }
 
-    public void registerCourse(Course course) {
-        courses.add(course);
+    public void registerCourse(String courseName) {
+        courses.add(this.courses.stream().filter(course -> course.getName().equals(courseName)).findFirst().get());
     }
 
-    public void dropCourse(Course course) {
-        courses.remove(course);
+    public void dropCourse(String courseName) {
+        courses.remove(this.courses.stream().filter(course -> course.getName().equals(courseName)).findFirst().get());
     }
 }

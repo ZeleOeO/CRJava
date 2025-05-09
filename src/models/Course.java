@@ -15,8 +15,8 @@ public class Course {
 
     public Course(String name, int capacity, Teacher teacher, int level, Set<String> studentsThatShouldBeInCourse) {
         Random rand = new Random();
-        this.id = rand.nextInt();
-        this.name = name;
+        this.id = rand.nextInt(10);
+        this.name = name+ (String.valueOf(level).charAt(toString().length()-1) + String.valueOf(id));
         this.capacity = capacity;
         this.teacher = teacher;
         this.level = level;
