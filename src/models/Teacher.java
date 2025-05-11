@@ -7,16 +7,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Teacher extends User {
     private final Set<Course> coursesTeaching = new HashSet<>();
 
     public Teacher(String name) {super(name);}
 
-    public Set<Course> getAllCourseTeaching() {
-        return coursesTeaching;
+    public List<String> getAllCourseTeaching() {
+        return this.coursesTeaching.stream().map(Course::getName).toList();
     }
 
     private Set<String> getStudentsFromFile() {
@@ -43,6 +46,7 @@ public class Teacher extends User {
         Course course = new Course(courseName, capacity,this, level, this.getStudentsFromFile());
         coursesTeaching.add(course);
         Admin.allCourses.add(course.getName());
+        Admin.allCoursesObj.add(course);
         Admin.allTeachers.add(course.getTeacher().getName());
     }
 
