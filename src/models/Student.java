@@ -8,7 +8,10 @@ import java.util.stream.Collectors;
 public class Student  extends User{
     private Set<Course> courses = new HashSet<>();
 
-    public Student(String name) {super(name); Admin.allStudents.add(name);}
+    public Student(String name) {
+        super(name);
+        Admin.allStudents.add(name);
+    }
 
     public Map<String, String> viewCoursesRegistered() {
         Map<String, String> coursesRegisteredWithTeacher = new HashMap<>();
@@ -20,7 +23,7 @@ public class Student  extends User{
     }
 
     public void registerCourse(String courseName) {
-        Course course = Admin.allCoursesObj.stream().filter(c -> c.getName().equals(courseName)).findFirst().get();
+        Course course = Admin.allCoursesObj.stream().filter(c -> c.getName().toLowerCase().equals(courseName)).findFirst().get();
         if (course.getCapacity()==0) {throw new CourseRegistrationException("Course capacity exceeded");}
         if (!course.getStudentsThatShouldBeInCourse().contains(this.getName())) {throw new CourseRegistrationException("Student is not permitted to register course");}
         courses.add(course);
