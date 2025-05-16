@@ -14,9 +14,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Teacher extends User {
-    private final Set<Course> coursesTeaching = new HashSet<>();
+    private final Set<Course> coursesTeaching;
 
-    public Teacher(String name) {super(name);}
+    public Teacher(String name) {super(name); this.coursesTeaching = new HashSet<>();}
 
     public List<String> getAllCourseTeaching() {
         return this.coursesTeaching.stream().map(Course::getName).toList();
