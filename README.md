@@ -21,8 +21,8 @@ This is a basic command-line application written in **Core Java**. It simulates 
 ## Usage
 - Run the project on command line
    ```bash
-    javac Main.java
-    java Main
+    javac src/Main.java
+    java src/Main
     ```
 
 ## File Structure
