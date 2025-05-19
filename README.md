@@ -64,4 +64,4 @@ Unfortunately didn't create tests for this project
    Please stick to conventional methods of programming java and springboot applications, don't mess up my already spaghetti code
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+It's an open source project, so it's [MIT](LICENSE) licensed.
